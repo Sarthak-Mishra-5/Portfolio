@@ -7,21 +7,30 @@ import { Github, ExternalLink } from "lucide-react";
 
 export default function ProjectsSection() {
   const projects = [
+    // {
+    //   title: "Paradox Event",
+    //   description:
+    //     "An interactive puzzle platform for the Paradox gaming event, where participants advanced by solving logic challenges with hints. Top scorers moved to a more complex final round.",
+    //   image: "/Project Images/paradox16-9.png?aspectRatio=16/9",
+    //   tech: [
+    //     "Node.js",
+    //     "Express.js",
+    //     "JavaScript",
+    //     "MongoDB",
+    //     "DigitalOcean",
+    //     "Figma",
+    //   ],
+    //   github: "",
+    //   demo: "https://www.figma.com/design/dYxNpSR0aiPCqNaeMNV6lB/Figma-Designs?node-id=44-60&p=f&t=t771mhl25Q0PNLNG-0", // This links to design/demo
+    // },
     {
-      title: "Paradox Event",
+      title: "The Sort Lab",
       description:
-        "An interactive puzzle platform for the Paradox gaming event, where participants advanced by solving logic challenges with hints. Top scorers moved to a more complex final round.",
-      image: "/Project Images/paradox16-9.png?aspectRatio=16/9",
-      tech: [
-        "Node.js",
-        "Express.js",
-        "JavaScript",
-        "MongoDB",
-        "DigitalOcean",
-        "Figma",
-      ],
-      github: "",
-      demo: "https://www.figma.com/design/dYxNpSR0aiPCqNaeMNV6lB/Figma-Designs?node-id=44-60&p=f&t=t771mhl25Q0PNLNG-0", // This links to design/demo
+        "An interactive and user-friendly platform for learning and visualizing sorting algorithms, where users can explore and compare various algorithms through detailed animations.",
+      image: "/Project Images/SortLab.png?aspectRatio=16/9",
+      tech: ["Next.js", "TypeScript", "Tailwind CSS", "Shadcn UI"],
+      github: "http://github.com/sarthak-Mishra-5/the-Sort-Lab/",
+      demo: "https://the-sort-lab.vercel.app/",
     },
     {
       title: "HarvestBerg Solutions",
@@ -130,11 +139,11 @@ export default function ProjectsSection() {
                       </Button>
                     )}
 
-                    {project.title === "Paradox Event" && project.demo && (
+                    {project.title === "The Sort Lab" && project.demo && (
                       <Button
                         size="sm"
                         variant="outline"
-                        className="border-gray-400 dark:border-gray-600/50 text-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-black/90"
+                        className="bg-gradient-to-r from-gray-800 to-gray-900 hover:from-gray-700 hover:to-gray-800 dark:from-gray-700 dark:to-gray-900 dark:hover:from-gray-600 dark:hover:to-gray-800 text-white  border border-gray-600"
                       >
                         <a
                           href={project.demo}
@@ -143,7 +152,7 @@ export default function ProjectsSection() {
                           className="flex items-center"
                         >
                           <ExternalLink className="w-4 h-4 mr-1" />
-                          Design
+                          Demo
                         </a>
                       </Button>
                     )}

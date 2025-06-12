@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Sarthak Mishra - Portfolio",
-  description: "Created with love by Sarthak Mishra",
+  description: "Coding ideas into reality",
   keywords: [
     "Sarthak Mishra",
     "Portfolio",
@@ -46,6 +46,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <link rel="icon" href="/favicon.ico" />
       <body>{children}</body>
     </html>
   );
