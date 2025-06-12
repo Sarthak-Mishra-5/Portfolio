@@ -11,7 +11,7 @@ export default function ProjectsSection() {
       title: "Paradox Event",
       description:
         "An interactive puzzle platform for the Paradox gaming event, where participants advanced by solving logic challenges with hints. Top scorers moved to a more complex final round.",
-      image: "/paradox16-9.png?aspectRatio=16/9",
+      image: "/Project Images/paradox16-9.png?aspectRatio=16/9",
       tech: [
         "Node.js",
         "Express.js",
@@ -27,7 +27,7 @@ export default function ProjectsSection() {
       title: "HarvestBerg Solutions",
       description:
         "A blockchain and machine learning-powered agri-tech solution bringing transparency, traceability, and smart decision-making to the agricultural supply chain.",
-      image: "/harvestberg.png?aspectRatio=16/9",
+      image: "/Project Images/harvestberg.png?aspectRatio=16/9",
       tech: [
         "Solidity",
         "Polygon",
@@ -43,7 +43,7 @@ export default function ProjectsSection() {
       title: "parkकर - Smart Parking",
       description:
         "A smart parking platform that lets users easily find, book, and manage parking spaces in real time with advanced OpenCV-powered slot detection technology.",
-      image: "/parkkar.png?height=200&width=300",
+      image: "/Project Images/parkkar.png?height=200&width=300",
       tech: [
         "Pug",
         "CSS",
@@ -133,7 +133,8 @@ export default function ProjectsSection() {
                     {project.title === "Paradox Event" && project.demo && (
                       <Button
                         size="sm"
-                        className="border-gray-400 bg-black dark:border-gray-600/50 text-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800/50"
+                        variant="outline"
+                        className="border-gray-400 dark:border-gray-600/50 text-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-black/90"
                       >
                         <a
                           href={project.demo}

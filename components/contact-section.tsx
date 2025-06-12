@@ -106,16 +106,24 @@ export default function ContactSection() {
                 >
                   <Mail className="w-5 h-5" />
                 </Button>
-                <Button
-                  variant="outline"
-                  size="icon"
-                  className="border-gray-400 dark:border-gray-600/50 text-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800/50"
-                  onClick={() =>
-                    window.open("https://leetcode.com/u/sarthakkm/", "_blank")
-                  }
-                >
-                  <ExternalLink className="w-5 h-5" />
-                </Button>
+                <div className="relative group">
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    className="border-gray-400 dark:border-gray-600/50 text-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800/50"
+                    onClick={() =>
+                      window.open(
+                        "https://drive.google.com/drive/folders/1ng1-T_ySIRrPu6vXngGvdoV4VbB9VF5h?usp=drive_link",
+                        "_blank"
+                      )
+                    }
+                  >
+                    <ExternalLink className="w-6 h-6" />
+                  </Button>
+                  <span className="absolute left-1/2 translate-y-9 -translate-x-1/2 mt-2 px-2 py-1 rounded bg-gray-800 text-white text-xs opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-20">
+                    Resume
+                  </span>
+                </div>
               </div>
             </div>
           </div>

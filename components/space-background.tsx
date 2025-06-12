@@ -426,13 +426,13 @@ export default function SpaceBackground() {
         />
       ))}
 
-      {/* {planets.map((planet, index) => (
+      {planets.map((planet, index) => (
         <Planet
           key={index}
           {...planet}
           position={planet.position as [number, number, number]}
         />
-      ))} */}
+      ))}
 
       {asteroids.map((asteroid, index) => (
         <Asteroid
