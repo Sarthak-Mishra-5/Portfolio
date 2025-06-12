@@ -19,10 +19,10 @@ export default function AboutSection() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
             <p className="text-lg text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
-              <span className="bg-gradient-to-r from-gray-900 to-gray-600 dark:from-gray-200 dark:to-gray-400 bg-clip-text text-transparent text-2xl font-bold">
+              <span className="rejouice bg-gradient-to-r from-gray-900 to-gray-600 dark:from-gray-200 dark:to-gray-400 bg-clip-text text-transparent text-2xl font-bold">
                 Hola Amigos
               </span>
-              , I'm Sarthak Mishra, a developer and problem-solver pursuing
+              , I'm Sarthak Mishra, a final-year undergraduate pursuing
               Mathematics and Scientific Computing at NIT Hamirpur.
             </p>
             <p className="text-lg text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">

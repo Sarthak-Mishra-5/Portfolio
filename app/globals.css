@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "Rejouice";
+  src: url("/Fonts/NBInternationalProBoo.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+.rejouice {
+  font-family: "Rejouice", sans-serif;
+}
+
 body {
   font-family: Arial, Helvetica, sans-serif;
 }

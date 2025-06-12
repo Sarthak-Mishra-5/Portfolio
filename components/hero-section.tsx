@@ -12,7 +12,7 @@ import {
 
 export default function HeroSection() {
   const [text, setText] = useState("");
-  const fullText = "Full Stack Developer | Problem Solver";
+  const fullText = " Developer | Designer | Problem Solver";
 
   useEffect(() => {
     let index = 0;
@@ -42,7 +42,7 @@ export default function HeroSection() {
       <div className="text-center z-10">
         <div className="mb-8">
           <h1 className="text-5xl md:text-7xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-gray-900 via-gray-700 to-gray-500 dark:from-gray-100 dark:via-gray-300 dark:to-gray-500 bg-clip-text text-transparent">
+            <span className="rejouice bg-gradient-to-r from-gray-900 via-gray-700 to-gray-500 dark:from-gray-100 dark:via-gray-300 dark:to-gray-500 bg-clip-text text-transparent">
               Sarthak Mishra
             </span>
           </h1>

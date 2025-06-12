@@ -1,8 +1,7 @@
 "use client";
 
-import type React from "react";
-
-import { useState } from "react";
+import React from "react";
+import { useForm, ValidationError } from "@formspree/react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -17,30 +16,10 @@ import {
 } from "lucide-react";
 
 export default function ContactSection() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log("Form submitted:", formData);
-    setFormData({ name: "", email: "", subject: "", message: "" });
-  };
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
+  const [state, handleSubmit] = useForm("xrbkqkpj"); // Replace with your Formspree ID
 
   return (
-    <section id="contact" className="py-20 px-4">
+    <section id="contact" className="pt-20 pb-4 px-4">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
@@ -61,45 +40,29 @@ export default function ContactSection() {
               Let's Connect
             </h3>
             <p className="text-gray-700 dark:text-gray-300 mb-8 leading-relaxed">
-              I'm always interested in hearing about new opportunities, whether
-              it's internships, full-time positions, freelance projects, or
-              collaborations. Feel free to reach out!
+              I'm always interested in hearing about new opportunities...
             </p>
 
             <div className="space-y-6">
               <div className="flex items-center">
-                <Mail className="w-6 h-6 text-gray-700 dark:text-gray-400 mr-4" />
+                <Mail className="w-6 h-6 mr-4" />
                 <div>
-                  <div className="text-gray-900 dark:text-white font-medium">
-                    Email
-                  </div>
-                  <div className="text-gray-700 dark:text-gray-300">
-                    sarthakm890@gmail.com
-                  </div>
+                  <div className="font-medium">Email</div>
+                  <div>sarthakm890@gmail.com</div>
                 </div>
               </div>
-
               <div className="flex items-center">
-                <Phone className="w-6 h-6 text-gray-700 dark:text-gray-400 mr-4" />
+                <Phone className="w-6 h-6 mr-4" />
                 <div>
-                  <div className="text-gray-900 dark:text-white font-medium">
-                    Phone
-                  </div>
-                  <div className="text-gray-700 dark:text-gray-300">
-                    +91 74288 69112
-                  </div>
+                  <div className="font-medium">Phone</div>
+                  <div>+91 74288 69112</div>
                 </div>
               </div>
-
               <div className="flex items-center">
-                <MapPin className="w-6 h-6 text-gray-700 dark:text-gray-400 mr-4" />
+                <MapPin className="w-6 h-6 mr-4" />
                 <div>
-                  <div className="text-gray-900 dark:text-white font-medium">
-                    Location
-                  </div>
-                  <div className="text-gray-700 dark:text-gray-300">
-                    Ghaziabad, Uttar Pradesh, India
-                  </div>
+                  <div className="font-medium">Location</div>
+                  <div>Ghaziabad, Uttar Pradesh, India</div>
                 </div>
               </div>
             </div>
@@ -160,97 +123,92 @@ export default function ContactSection() {
           {/* Contact Form */}
           <Card className="bg-white/70 dark:bg-gray-900/50 border-gray-300 dark:border-gray-700/50 backdrop-blur-sm">
             <CardContent className="p-6">
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-4">
+              {state.succeeded ? (
+                <div className="flex flex-col items-center justify-center text-center py-12 px-4">
+                  <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-2">
+                    Thank you!
+                  </h3>
+                  <p className="text-gray-700 dark:text-gray-300 text-lg max-w-md">
+                    Thanks for reaching out! I’ll get back to you soon.
+                  </p>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div>
+                      <label htmlFor="name" className="block mb-2 text-sm">
+                        Name
+                      </label>
+                      <Input
+                        id="name"
+                        name="name"
+                        required
+                        placeholder="Your name"
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="email" className="block mb-2 text-sm">
+                        Email
+                      </label>
+                      <Input
+                        id="email"
+                        type="email"
+                        name="email"
+                        required
+                        placeholder="you@example.com"
+                      />
+                      <ValidationError
+                        prefix="Email"
+                        field="email"
+                        errors={state.errors}
+                      />
+                    </div>
+                  </div>
                   <div>
-                    <label
-                      htmlFor="name"
-                      className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
-                    >
-                      Name
+                    <label htmlFor="subject" className="block mb-2 text-sm">
+                      Subject
                     </label>
                     <Input
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
+                      id="subject"
+                      name="subject"
                       required
-                      className="bg-white/50 dark:bg-gray-800/50 border-gray-300 dark:border-gray-600/50 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:border-gray-500 dark:focus:border-gray-500"
-                      placeholder="Your name"
+                      placeholder="Subject"
                     />
                   </div>
                   <div>
-                    <label
-                      htmlFor="email"
-                      className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
-                    >
-                      Email
+                    <label htmlFor="message" className="block mb-2 text-sm">
+                      Message
                     </label>
-                    <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={handleChange}
+                    <Textarea
+                      id="message"
+                      name="message"
                       required
-                      className="bg-white/50 dark:bg-gray-800/50 border-gray-300 dark:border-gray-600/50 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:border-gray-500 dark:focus:border-gray-500"
-                      placeholder="your.email@example.com"
+                      rows={5}
+                      placeholder="Your message..."
+                    />
+                    <ValidationError
+                      prefix="Message"
+                      field="message"
+                      errors={state.errors}
                     />
                   </div>
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="subject"
-                    className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                  <Button
+                    type="submit"
+                    disabled={state.submitting}
+                    className="w-full py-3 bg-gray-700 text-white hover:bg-gray-800 transition-colors duration-200"
                   >
-                    Subject
-                  </label>
-                  <Input
-                    id="subject"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleChange}
-                    required
-                    className="bg-white/50 dark:bg-gray-800/50 border-gray-300 dark:border-gray-600/50 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:border-gray-500 dark:focus:border-gray-500"
-                    placeholder="What's this about?"
-                  />
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="message"
-                    className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
-                  >
-                    Message
-                  </label>
-                  <Textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    required
-                    rows={5}
-                    className="bg-white/50 dark:bg-gray-800/50 border-gray-300 dark:border-gray-600/50 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:border-gray-500 dark:focus:border-gray-500 resize-none"
-                    placeholder="Tell me about your project or opportunity..."
-                  />
-                </div>
-
-                <Button
-                  type="submit"
-                  className="w-full bg-gradient-to-r from-gray-800 to-gray-900 hover:from-gray-700 hover:to-gray-800 dark:from-gray-700 dark:to-gray-900 dark:hover:from-gray-600 dark:hover:to-gray-800 text-white py-3"
-                >
-                  Send Message
-                </Button>
-              </form>
+                    Send Message
+                  </Button>
+                </form>
+              )}
             </CardContent>
           </Card>
         </div>
 
         {/* Footer */}
-        <div className="mt-20 pt-8 border-t border-gray-300 dark:border-gray-700/50 text-center">
+        <div className="mt-20 pt-8 border-t text-center">
           <p className="text-gray-600 dark:text-gray-400">
-            © 2024 Sarthak Mishra. Built with Next.js, Three.js, and lots of ☕
+            © 2025 Sarthak Mishra. Built with Next.js, Three.js, and lots of ☕
           </p>
         </div>
       </div>

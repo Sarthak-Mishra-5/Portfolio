@@ -8,7 +8,7 @@ export default function SkillsSection() {
     {
       title: "Languages",
       icon: "💻",
-      skills: ["C++", "JavaScript", "SQL", "Solidity", "Python"],
+      skills: ["C++", "JavaScript", "TypeScript", "SQL", "Solidity", "Python"],
       color: "from-gray-700 to-gray-900 dark:from-gray-600 dark:to-gray-800",
     },
     {
@@ -16,9 +16,13 @@ export default function SkillsSection() {
       icon: "⚛️",
       skills: [
         "React.js",
+        "Next.js",
         "Node.js",
         "Express.js",
         "Bootstrap",
+        "GSAP",
+        "Shadcn UI",
+        "Three.js",
         "Tailwind CSS",
         "REST APIs",
         "Mongoose",
